@@ -5,8 +5,7 @@
 #include <iostream> 
 #include <string>
 #include "dado.h"
-#include <thread>         // std::this_thread::sleep_for
-#include <chrono> 
+
 
 class Sapo{
 	private:
@@ -44,7 +43,7 @@ class Sapo{
 		int getQtdDePulosDados();
 		void setQtdDePulosDados(int novaQtdDePulosDados);
 
-		int pular(); //faz o sapo pular.
+		void pular(); //faz o sapo pular.
 	
 		
 		~Sapo();
