@@ -2,7 +2,7 @@
 #include <vector>
 #include <iostream>
 #include <thread>         // std::this_thread::sleep_for
-#include <chrono> 
+#include <chrono> 		//std::chrono::seconds
 
 
 int Sapo::distanciaTotalDaCorrida = 100; // Define o tamanho do trajeto a ser percorrido.
