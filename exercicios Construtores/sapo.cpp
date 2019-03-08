@@ -6,7 +6,6 @@ Sapo::Sapo() : NumeroAleatorio(1,tamanhoDoPulo) {
 	qtdDePulosDados = 0;
 }
 
-
 // Usa os parametros de objeto de sapo no sapo a ser instanciado.
 Sapo::Sapo ( const Sapo &sapo ) : NumeroAleatorio (1,tamanhoDoPulo)
 {
@@ -20,8 +19,6 @@ Sapo::Sapo(std::string i, int disPer, int qtdPulos) : distanciaPercorrida(0),  N
 	distanciaPercorrida = disPer;
 	qtdDePulosDados = qtdPulos;
 }
-
-
 
  int Sapo::getDistanciaTotalDaCorrida(){
 	return distanciaTotalDaCorrida;
@@ -50,10 +47,9 @@ void Sapo::setQtdDePulosDados(int novaQtdDePulosDados){
 }
 
 // Usa a objeto de dado para fazer o sapo pular uma distancia aleatoria e contabiliza.
-int Sapo::pular(){
+void Sapo::pular(){
 	distanciaPercorrida +=  NumeroAleatorio.aleatorio(); 
 	qtdDePulosDados++; 
-	return NumeroAleatorio.aleatorio();
 }
 
 Sapo::~Sapo() {
