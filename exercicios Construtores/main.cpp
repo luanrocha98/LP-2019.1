@@ -6,7 +6,7 @@
 
 
 int Sapo::distanciaTotalDaCorrida = 100; // Define o tamanho do trajeto a ser percorrido.
-int Sapo::tamanhoDoPulo = 10; // Define o tamanho do pulo máximo dos sapos.
+int Sapo::tamanhoDoPulo = 20; // Define o tamanho do pulo máximo dos sapos.
 
 int main() {
 
@@ -64,19 +64,15 @@ int main() {
 	}
 
 	std::cout << std::endl << std::endl << std::endl <<"--------------------------------------------------";
-	std::cout << " ----------------------------------------------------------------------" << std::endl;
+	std::cout << "-----------------------------------------------------------------------" << std::endl;
 	std::cout << "                                             F I M   D A   C O R R I D A      " << std::endl;
 	std::cout << "------------------------------------------------------------";
 	std::cout << "------------------------------------------------------------" << std::endl;
-
 
 	//Mostra o resultado da corrida.
 	std::cout << ">>>  Vencedor: " <<  vetorDeSapo[vencedor].getIdentificador() << std::endl;
 	std::cout << ">>>  Pulos dados: " <<  vetorDeSapo[vencedor].getQtdDePulosDados() << std::endl;
 	std::cout << ">>>  Distancia Percorrida: " << vetorDeSapo[vencedor].getDistanciaPercorrida() << std::endl;
-
-
-
 
 	return 0;
 }
