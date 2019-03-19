@@ -1,4 +1,5 @@
 #include "funcionario.h"
+#include <time.h>
 
 float Funcionario::getSalario() {
 	return salario;
@@ -12,8 +13,12 @@ std::string Funcionario::getCPF() {
 	return CPF;
 }
 
-bool periodoDeExperiencia() {
-	//fsdklfsjlfslfs dfslf
+bool Funcionario::periodoDeExperiencia(int diaAtual, int mesAtual, int anoAtual) {
+	
+    Data dataAtual( diaAtual, mesAtual, anoAtual);
+ 
+  	return (dataAtual--90) >= periodoDeExperiencia ; 
+    	
 }
 
 std::ostream& operator<< (std::ostream &o, Funcionario const f) {
