@@ -19,9 +19,6 @@ class Data {
 
 		friend std::ostream& operator<< (std::ostream &o, Data const d);
 
-		friend Data& operator--();
-		friend Data& operator--(int );
-
 		//operadores de comprarações
 
 		friend bool operator == (const Data&, const Data&);

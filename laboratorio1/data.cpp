@@ -86,28 +86,6 @@ bool operator >= (const Data& d1, const Data& d2) {
 	return (d1>d2);
 }
 
-inline Data anterior_data(const Data& d) {
-	Data ndata;
-	if(!d.validarData()) {return ndata; };
-	ndata = Data( (d.dia-1), d.mes, d.ano); if (ndata.validarData()) return ndata;
-	ndata = Data(31,(d.mes-1), d.ano); if(ndata.validarData()) return ndata;
-	ndata = Data(30,(d.mes-1), d.ano); if(ndata.validarData()) return ndata;
-	ndata = Data(29,(d.mes-1), d.ano); if(ndata.validarData()) return ndata;
-	ndata = Data(28,(d.mes-1), d.ano); if(ndata.validarData()) return ndata;
-	ndata = Data(31,12,(d.ano-1)); return ndata;
-};
-
-Data& Data::operator--(int) {
-	Data d = *this;
-	*this = anterior_data(*this);
-	return d;
-}
-
-Data& Data::operator --(){
-	*this = anterior_data(*this);
-	return *this;
-}
-
 int Data::getDia(){
 	return dia;
 }
