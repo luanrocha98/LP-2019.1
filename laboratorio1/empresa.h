@@ -31,7 +31,7 @@ class Empresa {
 
 		void listarFuncionariosPerExp(date dataAtual);
 
-		static int mediaDeFuncPorEmpresas();
+		static float mediaDeFuncPorEmpresas();
 		
 };
 

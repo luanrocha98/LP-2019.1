@@ -23,7 +23,7 @@ void Empresa::adicionarFuncionario(String nome, String CPF, float salario, date 
 
 	for(auto& trabalhador : listaDeFuncionarios){
 		if( CPF == trabalhador.getCPF()){
-			std::cout << "Esse funcionario já participa dessa empresa!" << std::endl;
+			std::cout << "O funcionario " << nome << " já participa dessa empresa!" << std::endl;
 			return;
 		}		
 	}
@@ -58,7 +58,7 @@ void Empresa::listarFuncionariosPerExp(date dataAtual) {
 	} 
 
 }
-int Empresa::mediaDeFuncPorEmpresas() {
+float Empresa::mediaDeFuncPorEmpresas() {
 	return Funcionario::getNumeroDeFuncionarios()/getNumeroDeEmpresas() ;
 }
 
