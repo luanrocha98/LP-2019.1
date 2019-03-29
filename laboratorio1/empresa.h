@@ -8,6 +8,7 @@ using String = std::string;
 #include <vector>
 #include "funcionario.h"
 
+
 class Empresa {
 	private:
 		String nome;
@@ -16,21 +17,22 @@ class Empresa {
 
 	public:
 		Empresa(); //Construtor padrão 
-		Empresa(std::string nome, std::string CNPJ, std::vector<funcionario> listaDeFuncionarios); //Construtor parametrizado
+		Empresa(std::string nome, std::string CNPJ); //Construtor parametrizado
 
-		static NumeroDeFuncionarios;
+		static int numeroDeEmpresas;
+		static int getNumeroDeEmpresas();
+	
 
-		void adiconarFuncionario (String nome, String CPF, float salario, Data dataDeAdmissao);
-
-		void criarEmpresa (std::string nome, std::string CNPJ);
+		void adicionarFuncionario(String nome, String CPF, float salario, date dataDeAdmissao);
 
 		void listarFuncionarios();
 
-		//void listarMediaDeFuncionarios;
+		void aumentoDeSalario(float porcentagem);
 
-		//getters e setters 
+		void listarFuncionariosPerExp(date dataAtual);
 
-		std::vector<Funcionario> getListaFuncionario();
-}
+		static int mediaDeFuncPorEmpresas();
+		
+};
 
 #endif

@@ -1,46 +1,64 @@
 #include "empresa.h"
 
 
-Empresa::Empresa () {
-	nome = "";
-	CNPJ = "";
+Empresa::Empresa () :
+	nome(""),
+	CNPJ("")
 
-}
+{}
 
 Empresa::Empresa (std::string nome, std::string CNPJ){
-	this.nome = nome;
-	this.CNPJ = CNPJ;
-}
-
-Empresa::Empresa (std::string nome, std::string CNPJ, std::vector<funcionario> listaDeFuncionarios){
-	this.nome = nome;
-	this.CNPJ = CNPJ;
-	this.listaDeFuncionarios = listaDeFuncionarios;
+	this->nome = nome;
+	this->CNPJ = CNPJ;
+	std::cout << "Empresa " << nome << " criada com sucesso!" << std::endl;
+	numeroDeEmpresas++;
 }
 
 
+int Empresa::getNumeroDeEmpresas() {
+return numeroDeEmpresas;
+}
 
-bool Empresa::adicionarFuncionarios (String nome, String CPF, float salario, Data dataDeAdmissao) {
+void Empresa::adicionarFuncionario(String nome, String CPF, float salario, date dataDeAdmissao) {
 
-	listaDeFuncionarios.emplace_back(nome,CPF,salario,dataDeAdmissao);
-
-   if( verificaFuncionario(NovoFuncionario) ) return true;
-		 else return false;
-
+	for(auto& trabalhador : listaDeFuncionarios){
+		if( CPF == trabalhador.getCPF()){
+			std::cout << "Esse funcionario já participa dessa empresa!" << std::endl;
+			return;
+		}		
 	}
 
-void Empresa::criarEmpresa (std::string nome, std::string CNPJ){
-	this.nome = nome;
-	this.CNPJ = CNPJ;
+	listaDeFuncionarios.emplace_back(Funcionario(nome,CPF,salario,dataDeAdmissao));
+	std::cout << "O funcionario " << nome << " foi adicionado com sucesso!" << std::endl;
+
+	Funcionario::numeroDeFuncionarios++;
 }
+
 
 void Empresa::listarFuncionarios() {
-	for(auto funcionario : listaDeFuncionarios){
-		std::cout << funcionario << std::endl;
+	std::cout << "Lista de funcionários: " << std::endl;
+	for(auto& trabalhador : listaDeFuncionarios)
+		std::cout << trabalhador << std::endl;
+}
 
+void Empresa::aumentoDeSalario(float porcentagem) {
+	
+	for(auto& trabalhador : listaDeFuncionarios)
+		trabalhador.setSalario( trabalhador.getSalario() + (porcentagem/100)*trabalhador.getSalario() );
+
+	std::cout << "Aumento de salário de " << porcentagem <<" porcento para os funcionários!" << std::endl;
+}
+
+void Empresa::listarFuncionariosPerExp(date dataAtual) {
+	std::cout << "Funcionários em período de experiência: " << std::endl;
+
+	for(auto& trabalhador : listaDeFuncionarios){
+		if(trabalhador.periodoDeExperiencia(dataAtual))
+		std::cout << trabalhador << std::endl;
 	} 
+
+}
+int Empresa::mediaDeFuncPorEmpresas() {
+	return Funcionario::getNumeroDeFuncionarios()/getNumeroDeEmpresas() ;
 }
 
-std::vector<funcionario> Empresa::getListaFuncionario(){
-	return listaDeFuncionarios;
-}
