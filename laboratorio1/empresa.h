@@ -3,16 +3,17 @@
 
 #include <iostream>
 #include <string>
-using String = std::string;
-
 #include <vector>
 #include "funcionario.h"
+using String = std::string;
 
 
 class Empresa {
 	private:
 		String nome;
+
 		String CNPJ;
+
 		std::vector<Funcionario> listaDeFuncionarios;
 
 	public:
@@ -27,7 +28,7 @@ class Empresa {
 
 		void listarFuncionarios();
 
-		void aumentoDeSalario(float porcentagem);
+		void aumentoDeSalario(float porcentagem); 
 
 		void listarFuncionariosPerExp(date dataAtual);
 

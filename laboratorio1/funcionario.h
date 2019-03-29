@@ -17,21 +17,23 @@ class Funcionario {
 
 
 	public:
-		friend std::ostream& operator<< (std::ostream &o, Funcionario const f);
 
-		float getSalario();
-		void setSalario(float salario);
+		Funcionario(); //Construtor padrão
+		Funcionario(std::string nome, std::string CPF, float salario, date dataDeAdmissao); // Construtor parametrizado.
+
+		
+		//métodos Gets e Sets necessários:
 
 		static int numeroDeFuncionarios;
 		static int getNumeroDeFuncionarios();
-	
 
-		Funcionario();
-		Funcionario(std::string nome, std::string CPF, float salario, date dataDeAdmissao);
+		std::string getCPF(); 
+		float getSalario();
+		void setSalario(float salario);
 
-		std::string getCPF();
+		bool periodoDeExperiencia(date dataAtual); //variável que retorna 1 se o funcionário está em período de esperiência, ou 0 se não está.
 
-		bool periodoDeExperiencia(date dataAtual);
+		friend std::ostream& operator<< (std::ostream &o, Funcionario const f); // sobrecarga do operador << para funcionários.
 
 		
 };
